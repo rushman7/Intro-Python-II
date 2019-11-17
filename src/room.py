@@ -9,3 +9,6 @@ class Room:
     self.s_to = s_to
     self.e_to = e_to
     self.w_to = w_to
+
+  def __str__(self):
+    return f"Location: \033[0;34;49m{self.name}  \033[0;37;49m \nDescription: \033[0;36;49m {self.description}"
