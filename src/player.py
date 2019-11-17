@@ -26,14 +26,14 @@ class Player:
       for item in self.current_room.items:
         self.inventory.append(item)
         self.current_room.items.remove(item)
-        print(f"\033[1;32;49m{item.name} has been added to your inventory")
+        print(f"\033[1;32;49mYou have picked up \033[1;32;49m{item.name}\033[0;37;49m")
     else:
       for item in self.current_room.items:
-        inp = input(f'Do you want to pick up the {item.name}, y/n: ')
+        inp = input(f'Do you want to pick up the \033[1;32;49m{item.name}\033[0;37;49m, Y/N? ')
         if inp.lower() == 'y':
           self.inventory.append(item)
           self.current_room.items.remove(item)
-          print(f"\033[1;32;49m{item.name} has been added to your inventory")
+          print(f"\033[1;32;49mYou have picked up \033[1;32;49m{item.name}\033[0;37;49m")
         else: 
           pass
 
@@ -47,3 +47,21 @@ class Player:
       for item in self.inventory:
         print(item)
       print('\033[0;37;49m---------------------------------------------------------')
+
+  def remove_from_inventory(self):
+    if len(self.inventory) <= 0:
+      print('\033[0;31;49mThere are no items in your inventory')
+    elif len(self.inventory) == 1: 
+      for item in self.inventory:
+        self.inventory.remove(item)
+        self.current_room.items.append(item)
+        print(f"You have dropped \033[1;32;49m{item.name}\033[0;37;49m in \033[0;31;49m{self.current_room}")
+    else:
+      for item in self.inventory:
+        inp = input(f'Do you want to drop the \033[1;32;49m{item.name}\033[0;37;49m, Y/N? ')
+        if inp.lower() == 'y':
+          self.inventory.remove(item)
+          self.current_room.items.append(item)
+          print(f"You have dropped the \033[1;32;49m{item.name} in \033[0;31;49m{self.current_room}")
+        else: 
+          pass

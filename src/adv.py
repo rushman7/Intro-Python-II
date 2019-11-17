@@ -87,6 +87,8 @@ while(playing):
         player.open_inventory()
     elif inp[0] == 'c':
         player.search()
+    elif inp[0] == 'd':
+        player.remove_from_inventory()
 
 
 
