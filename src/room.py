@@ -2,13 +2,13 @@
 # description attributes.
 
 class Room:
-  def __init__(self, name, description, n_to, s_to, e_to, w_to):
+  def __init__(self, name, description):
     self.name = name
     self.description = description
-    self.n_to = n_to
-    self.s_to = s_to
-    self.e_to = e_to
-    self.w_to = w_to
+    self.n_to = None
+    self.s_to = None
+    self.e_to = None
+    self.w_to = None
 
   def __str__(self):
-    return f"Location: \033[0;34;49m{self.name}  \033[0;37;49m \nDescription: \033[0;36;49m {self.description}"
+    return f"Location: \033[0;31;49m{self.name}  \033[0;37;49m \nDescription: \033[0;34;49m {self.description}\033[0;37;49m \n"
