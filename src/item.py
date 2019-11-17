@@ -5,7 +5,7 @@ class Item:
     self.durability = durability
 
   def __str__(self):
-    return f"Item: \033[1;32;49m{self.name}\033[0;37;49m, \033[1;35;49m{self.durability}/100\033[0;37;49m\nDescription:\033[0;34;49m {self.description}\033[0;37;49m"
+    return f"Item: \033[1;32;49m{self.name}\033[0;37;49m, \033[1;35;49m{self.durability}/100\033[0;37;49m,\033[0;34;49m {self.description}\033[0;37;49m"
     
 all_items = {
     'sword': Item("Sword", "The sword hums with a strange power.", 100),

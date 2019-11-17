@@ -5,11 +5,11 @@ class Room:
   def __init__(self, name, description, items):
     self.name = name
     self.description = description
-    self.items = items
+    self.items = list(items)
     self.n_to = None
     self.s_to = None
     self.e_to = None
     self.w_to = None
       
   def __str__(self):
-    return f"Location: \033[0;31;49m{self.name}\033[0;37;49m\nDescription:\033[0;34;49m {self.description}\033[0;37;49m\n"
+    return f"Location: \033[0;31;49m{self.name}\033[0;37;49m\nDescription:\033[0;34;49m {self.description}\033[0;37;49m\n---------------------------------------------------------"
