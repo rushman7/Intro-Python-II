@@ -8,9 +8,9 @@ class Item:
     return f"Item: \033[1;32;49m{self.name}\033[0;37;49m, \033[1;35;49m{self.value}\033[0;37;49m,\033[0;34;49m {self.description}\033[0;37;49m"
 
 class LightSource(Item):
-  def __init__(self, name, description, value, is_Light):
+  def __init__(self, name, description, value, is_light):
     super().__init__(name, description, value)
-    self.is_Light = is_Light
+    self.is_light = is_light
     
 all_items = {
     'sword': Item("Sword", "The sword hums with a strange power.", 7),
