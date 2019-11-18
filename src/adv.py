@@ -14,17 +14,19 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 room['graveyard'].n_to = room['shack']
+room['graveyard'].e_to = room['foyer']
+room['shack'].s_to = room['graveyard']
 
 # Add items to rooms
 
 room['outside'].items = [all_items['sword'], all_items['shield']]
 room['overlook'].items = [all_items['chest']]
 room['narrow'].items = [all_items['armor']]
-room['shack'].items = [all_items['spear']]
+room['shack'].items = [all_items['spear'], all_items['helmet']]
 
 # Main
 
-player = Player('Jack Sparrow', room['outside'], [])
+player = Player('Jack Sparrow', room['outside'], [], 0)
 
 # player = Player(input("\nWhat is yourname?:"), room['outside'], [])
 print(f"Welcome \033[1;32;49m{player.name}\033[0;37;49m!")
@@ -33,6 +35,10 @@ playing = True
 
 while(playing):
     print(player)
+
+    if player.score == 67:
+        print("\033[1;32;49mCongratulations you beat the game! Exiting now...")
+        break
 
     inp = input("\nType h for a list of commands\nPlease input a command: ")
 
