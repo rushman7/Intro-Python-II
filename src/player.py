@@ -9,7 +9,7 @@ class Player:
     self.score = score
 
   def __str__(self):
-    return f"Current Score:\033[1;36;49m {self.score}/67\n\033[0;37;49m{self.current_room}"
+    return f"Current Score:\033[1;36;49m {self.score}/100\n\033[0;37;49m{self.current_room}"
 
   def search(self):
     if len(self.current_room.items) <= 0:

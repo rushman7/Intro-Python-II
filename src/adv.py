@@ -26,7 +26,7 @@ room['shack'].items = [all_items['spear'], all_items['helmet']]
 
 # Main
 
-player = Player('Jack Sparrow', room['outside'], [], 0)
+player = Player('Jack Sparrow', room['outside'], [all_items['lamp']], 0)
 
 # player = Player(input("\nWhat is yourname?:"), room['outside'], [])
 print(f"Welcome \033[1;32;49m{player.name}\033[0;37;49m!")
@@ -36,7 +36,7 @@ playing = True
 while(playing):
     print(player)
 
-    if player.score == 67:
+    if player.score == 100:
         print("\033[1;32;49mCongratulations you beat the game! Exiting now...")
         break
 
