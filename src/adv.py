@@ -8,17 +8,19 @@ room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
 room['foyer'].n_to = room['overlook']
 room['foyer'].e_to = room['narrow']
+room['foyer'].w_to = room['graveyard']
 room['overlook'].s_to = room['foyer']
 room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
+room['graveyard'].n_to = room['shack']
 
 # Add items to rooms
 
 room['outside'].items = [all_items['sword'], all_items['shield']]
 room['overlook'].items = [all_items['chest']]
 room['narrow'].items = [all_items['armor']]
-room['treasure'].items = [all_items['spear']]
+room['shack'].items = [all_items['spear']]
 
 # Main
 
