@@ -1,31 +1,6 @@
-from room import Room
+from room import Room, room
 from player import Player
 from item import all_items
-
-# Declare all the rooms
-
-room = {
-    'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons",
-                     [all_items['sword'], all_items['shield']], ),
-
-    'foyer':    Room("Foyer", 
-                    """Dim light filters in from the south. Dusty passages run north and east.""",
-                    []),
-
-    'overlook': Room("Grand Overlook", 
-                    """A steep cliff appears before you, falling into the darkness. Ahead to the north, a light flickers in the distance, but there is no way across the chasm.""",
-                    [all_items['chest']]),
-
-    'narrow':   Room("Narrow Passage", 
-                    """The narrow passage bends here from west to north. The smell of gold permeates the air.""",
-                    [all_items['armor']]),
-
-    'treasure': Room("Treasure Chamber", 
-                    """You've found the long-lost treasure chamber! Sadly, it has already been completely emptied by earlier adventurers. The only exit is to the south.""",
-                    [all_items['spear']]),
-}
-
 
 # Link rooms together
 
@@ -38,11 +13,14 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
-#
-# Main
-#
+# Add items to rooms
 
-# Make a new player object that is currently in the 'outside' room.
+room['outside'].items = [all_items['sword'], all_items['shield']]
+room['overlook'].items = [all_items['chest']]
+room['narrow'].items = [all_items['armor']]
+room['treasure'].items = [all_items['spear']]
+
+# Main
 
 player = Player('Jack Sparrow', room['outside'], [])
 
@@ -51,12 +29,10 @@ print(f"Welcome \033[1;32;49m{player.name}\033[0;37;49m!")
 
 playing = True
 
-# Write a loop that:
-
 while(playing):
     print(player)
 
-    inp = input("\nPlease input a command: ")
+    inp = input("\nType h for a list of commands\nPlease input a command: ")
 
     if inp[0] == 'q':
         print("\033[1;31;49mExiting Game...")
@@ -89,15 +65,13 @@ while(playing):
         player.search()
     elif inp[0] == 'd':
         player.remove_from_inventory()
-
-
-
-#
-# * Prints the current room name
-# * Prints the current description (the textwrap module might be useful here).
-# * Waits for user input and decides what to do.
-#
-# If the user enters a cardinal direction, attempt to move to the room there.
-# Print an error message if the movement isn't allowed.
-#
-# If the user enters "q", quit the game.
+    elif inp[0] == 'h':
+        print('\033[1;32;49mh -> list of commands')
+        print('n -> player moves north')
+        print('s -> player moves south')
+        print('e -> player moves east')
+        print('w -> player moves west')
+        print('p -> pick up item in area')
+        print('i -> open inventory')
+        print('c -> search the area for items')
+        print('d -> drop item in area\033[0;37;49m')

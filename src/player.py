@@ -28,9 +28,9 @@ class Player:
         self.current_room.items.remove(item)
         print(f"\033[1;32;49mYou have picked up \033[1;32;49m{item.name}\033[0;37;49m")
     else:
+      item_choice = input('There are multiple items in this area, which would you like to pick up: ')
       for item in self.current_room.items:
-        inp = input(f'Do you want to pick up the \033[1;32;49m{item.name}\033[0;37;49m, Y/N? ')
-        if inp.lower() == 'y':
+        if item_choice.lower() == item.name.lower():
           self.inventory.append(item)
           self.current_room.items.remove(item)
           print(f"\033[1;32;49mYou have picked up \033[1;32;49m{item.name}\033[0;37;49m")
