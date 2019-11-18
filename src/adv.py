@@ -23,6 +23,8 @@ room['outside'].items = [all_items['sword'], all_items['shield']]
 room['overlook'].items = [all_items['chest']]
 room['narrow'].items = [all_items['armor']]
 room['shack'].items = [all_items['spear'], all_items['helmet']]
+room['graveyard'].items = [all_items['gold']]
+room['treasure'].items = [all_items['diamond'], all_items['ruby'], all_items['emerald']]
 
 # Main
 
@@ -42,38 +44,38 @@ while(playing):
 
     inp = input("\nType h for a list of commands\nPlease input a command: ")
 
-    if inp[0] == 'q':
+    if inp.lower() == 'q':
         print("\033[1;31;49mExiting Game...")
         break
-    elif inp[0] == 'n':
+    elif inp.lower() == 'n':
         if player.current_room.n_to == None:
            print(f"\x1b[1;31;40m\nYou cannot move in that direction\x1b[0m\n") 
         else:
             player.current_room = player.current_room.n_to
-    elif inp[0] == 's':
+    elif inp.lower() == 's':
         if player.current_room.s_to == None:
            print(f"\x1b[1;31;40m\nYou cannot move in that direction\x1b[0m\n") 
         else:
             player.current_room = player.current_room.s_to
-    elif inp[0] == 'e':
+    elif inp.lower() == 'e':
         if player.current_room.e_to == None:
            print(f"\x1b[1;31;40m\nYou cannot move in that direction\x1b[0m\n") 
         else:
             player.current_room = player.current_room.e_to
-    elif inp[0] == 'w':
+    elif inp.lower() == 'w':
         if player.current_room.w_to == None:
            print(f"\x1b[1;31;40m\nYou cannot move in that direction\x1b[0m\n") 
         else:
             player.current_room = player.current_room.w_to
-    elif inp[0] == 'p':
+    elif inp.lower() == 'p':
         player.add_to_inventory()
-    elif inp[0] == 'i':
+    elif inp.lower() == 'i':
         player.open_inventory()
-    elif inp[0] == 'c':
+    elif inp.lower() == 'c':
         player.search()
-    elif inp[0] == 'd':
+    elif inp.lower() == 'd':
         player.remove_from_inventory()
-    elif inp[0] == 'h':
+    elif inp.lower() == 'h':
         print('\033[1;32;49mh -> list of commands')
         print('n -> player moves north')
         print('s -> player moves south')

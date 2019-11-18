@@ -16,8 +16,12 @@ all_items = {
     'sword': Item("Sword", "The sword hums with a strange power.", 7),
     'helmet': Item("Helmet", "The most uninteresting helmet you've ever laid eyes upon.", 3),
     'shield': Item("Shield", "The greatest offense is a good defense.", 6),
-    'chest': Item("Treasure Chest", "This chest contains the grand gift of knowledge.", 8),
+    'chest': Item("Chest", "This chest contains the grand gift of knowledge.", 8),
     'armor': Item("Armor", "Protects you from bad people.", 5),
     'spear': Item("Spear", "Sharp ends on this weapon.", 5),
+    'gold': Item("Gold", "A pile of pure gold.", 19),
+    'diamond': Item("Diamond", "A sharp perfectly cut diamond.", 20),
+    'ruby': Item("Ruby", "A beautiful stone, red as blood.", 15),
+    'emerald': Item("Emerald", "A beautiful stone, green as a grass.", 12),
     'lamp': LightSource("Lamp", "Traversing a pitch black dungeon without light is dangerous.", 0, True)
 }
